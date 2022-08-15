@@ -11,10 +11,17 @@
       *ngIf="
         novoUsuarioForm.get('email')?.errors?.['required'] &&
         novoUsuarioForm.get('email')?.touched"
-      mensagem="Email obrigatório"
-    >
 
+      mensagem="E-mail obrigatório"
+    >
     </app-mensagem>
+    <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('email')?.errors?.['email'] &&
+      novoUsuarioForm.get('email')?.touched"
+
+      mensagem="E-mail no formato incorreto!"
+    ></app-mensagem>
   </div>
   <div class="form-group mb-2">
     <input
@@ -22,6 +29,16 @@
       class="form-control"
       formControlName="fullName"
     />
+    <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('fullName')?.errors?.['required'] &&
+      novoUsuarioForm.get('fullName')?.errors &&
+      novoUsuarioForm.get('fullName')?.touched"
+
+      mensagem="Nome Incorreto"
+    >
+
+    </app-mensagem>
   </div>
   <div class="form-group mb-2">
     <input
